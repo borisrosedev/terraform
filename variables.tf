@@ -16,11 +16,6 @@ variable "vpc_id" {
   default = "vpc-0ebcdb39f7a526ef9"
 }
 
-variable "vpc_ip_address" {
-  default = "172.31.0.0/16"
-}
-
-
 variable "aws_region" {
   default = "eu-west-3"
 }
