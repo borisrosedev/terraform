@@ -1,0 +1,10 @@
+---
+- name: ping-play
+  hosts: app
+  tasks:
+   - name: ping my app
+     ansible.builtin.ping:
+
+   - name: print-msg
+     ansible.builtin.debug:
+       msg: boris says hello

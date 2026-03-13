@@ -4,7 +4,7 @@ CYAN_COLOR := \033[34;1m
 NO_COLOR := \033[0m
 COLOR_OUTPUT ?= true
 
-.PHONY: help format plan apply build ansible
+.PHONY: help format plan apply build ansible ping play
 .DEFAULT_GOAL := help
 
 help: ## shows this help
@@ -34,4 +34,9 @@ build: ## format, validate, plan and apply terraform configuration files
 
 ansible: ## create the ansible inventory
 	@./${SCRIPTS_DIR}/ansible.sh ${ANSIBLE_DIR} "~/.ssh/digital-school"
+
+ping:
+	@ansible app -m ping -i ${ANSIBLE_DIR}/hosts.ini
 	
+play:
+	@ansible-playbook -i ${ANSIBLE_DIR}/hosts.ini ${ANSIBLE_DIR}/playbook.yaml
